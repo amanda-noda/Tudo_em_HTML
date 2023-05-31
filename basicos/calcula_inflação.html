@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Inflação</title>
+</head>
+<body>
+  <h1>Calculadora de Inflação de Produtos</h1>
+
+  <form>
+    <label for="precoAtual">Preço Atual do Produto:</label>
+    <input type="number" id="precoAtual" step="0.01" min="0" required>
+
+    <label for="precoAntigo">Preço Antigo do Produto:</label>
+    <input type="number" id="precoAntigo" step="0.01" min="0" required>
+
+    <button type="button" onclick="calcularInflacao()">Calcular Inflação</button>
+  </form>
+
+  <div id="resultado"></div>
+
+  <script>
+    function calcularInflacao() {
+      var precoAtual = parseFloat(document.getElementById("precoAtual").value);
+      var precoAntigo = parseFloat(document.getElementById("precoAntigo").value);
+
+      var inflacao = (precoAtual - precoAntigo) / precoAntigo * 100;
+
+      document.getElementById("resultado").innerHTML = "A inflação do produto é de " + inflacao.toFixed(2) + "%.";
+    }
+  </script>
+</body>
+</html>
